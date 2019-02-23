@@ -45,8 +45,8 @@
 
 <script>
 
-import Card from '../shared/card/Card.vue'
-import { FETCH_CATEGORIES } from '../../store/actions'
+import Card from '../../shared/card/Card.vue'
+import { FETCH_CATEGORIES } from '../../../store/actions'
 
 export default {
 

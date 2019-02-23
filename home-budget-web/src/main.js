@@ -10,6 +10,7 @@ import { routes } from './routes.js'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faCoffee, faChartLine, faSearchPlus, faLayerGroup, faCalendarAlt, faMoneyBillAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import 'vuetify/dist/vuetify.min.css'
 
 import store from './store'
 
