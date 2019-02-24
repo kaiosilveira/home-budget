@@ -32,6 +32,7 @@ Vue.config.productionTip = false
 
 const router = new VueRouter({
   routes,
+  strict: process.env.NODE_ENV !== 'production',
   mode: 'history'
 });
 
