@@ -5,8 +5,10 @@ var schema = mongoose.Schema({
         type: String,
         required: true
     },
-    periodId: {
-        type: String
+    period: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'periods',
+        required: true
     }
 });
 

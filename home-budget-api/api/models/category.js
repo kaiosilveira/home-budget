@@ -2,8 +2,9 @@ const mongoose = require('mongoose');
 
 const schema = mongoose.Schema({
     
-    groupId: {
-        type: String,
+    group: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'groups',
         required: true
     },
 

@@ -8,6 +8,9 @@ module.exports = function(app) {
 
     app.route('/v1/groups/:id')
     .get(controller.get)
-    .put(controller.update);    
+    .put(controller.update);
+
+    app.route('/v1/groups/:id/categories')
+    .get(controller.listCategories);
 
 }

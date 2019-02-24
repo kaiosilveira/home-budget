@@ -7,8 +7,9 @@ const schema = mongoose.Schema({
         required: true
     },
 
-    categoryId: {
-        type: String,
+    category: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'categories',
         required: true
     },
 

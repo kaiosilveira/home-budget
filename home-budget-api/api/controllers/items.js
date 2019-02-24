@@ -39,7 +39,7 @@ controller.listByCategoryId = (req, res) => {
 }
 
 controller.create = (req, res) => {
-    const item = JSON.parse(req.body);
+    const item = req.body;
     model
     .create(item)
     .then(
