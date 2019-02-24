@@ -1,9 +1,13 @@
 const state = {
     periods: {},
     groups: [],
+    categories: [],
+    items: [],
     selectedPeriod: {},
+    selectedCategory: {},
     selectedGroup: {
-        categories: []
+        _id: 0,
+        name: ''
     }
 }
 

@@ -13,7 +13,6 @@
 
 import { mapstate } from 'vuex'
 import { FETCH_CATEGORIES, FETCH_GROUPS, FETCH_PERIODS } from '../../../store/actions'
-import { CHANGE_SELECTED_GROUP } from '../../../store/mutations'
 
 export default {
   
@@ -38,7 +37,7 @@ export default {
       return group.categories && group.categories.map(c => c.budget).reduce((sum, item) => sum += item)
     },
     seeDetailsOf(group) {
-      this.$store.commit(CHANGE_SELECTED_GROUP, group)
+      this.$store.commit('changeSelectedGroup', group)
       this.$router.push(`/groups/${group._id}`)
     },
   }

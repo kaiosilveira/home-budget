@@ -8,7 +8,7 @@ module.exports = function(app) {
     .post(controller.create);
 
     app.route('/v1/categories/:id/items')
-    .post(itemsController.create);
+    .get(itemsController.listByCategoryId);
 
     app.route('/v1/categories/:id')
     .get(controller.get);

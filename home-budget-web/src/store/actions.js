@@ -1,6 +1,7 @@
 import CategoriesService from '../api/services/CategoriesService'
 import PeriodsService from '../api/services/PeriodsService'
 import GroupsService from '../api/services/GroupsService'
+import ItemsService from '../api/services/ItemsService'
 
 export const FETCH_CATEGORIES = 'FETCH_CATEGORIES'
 export const FETCH_CATEGORY = 'FETCH_CATEGORY'
@@ -9,6 +10,7 @@ export const FETCH_PERIODS = 'FETCH_PERIODS'
 export const FETCH_GROUPS = 'FETCH_GROUPS'
 export const FETCH_SELECTED_GROUP = 'FETCH_SELECTED_GROUP'
 export const FETCH_CATEGORIES_BY_GROUP_ID = 'FETCH_CATEGORIES_BY_GROUP_ID'
+export const FETCH_ITEMS = 'FETCH_ITEMS'
 
 const actions = {
     [FETCH_PERIODS] ({ commit }) {
@@ -32,13 +34,19 @@ const actions = {
     [FETCH_CATEGORIES_BY_GROUP_ID] ({ commit }, groupId) {
         return CategoriesService
         .getByGroupId(groupId)
-        .then(categories => commit('receiveCategoriesForSelectedGroup', categories))
+        .then(categories => commit('receiveCategories', categories))
     },
 
     [FETCH_CATEGORY] ({ commit }, id) {
         return CategoriesService
         .getById(id)
         .then(category => commit('fetchSelectedCategory', category))
+    },
+
+    [FETCH_ITEMS] ({ commit }, categoryId) {
+        return ItemsService
+        .listByCategoryId(categoryId)
+        .then(items => commit('fetchItems', items))
     },
 
     [ADD_CATEGORY_ITEM] ({ commit }, { item, categoryId }) {

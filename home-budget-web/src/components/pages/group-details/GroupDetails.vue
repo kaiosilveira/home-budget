@@ -1,7 +1,7 @@
 <template>
     <div>
         <p>{{selectedGroup.name}}</p>
-        <div class="card" v-for="category in selectedGroup.categories" :key="category._id">
+        <div class="card" v-for="category in categories" :key="category._id" @click="seeDetailsOf(category)">
             <span>{{category.name}}</span> <span>{{category.budget}}</span>
         </div>
     </div>
@@ -14,6 +14,7 @@
 <script>
 
 import { FETCH_SELECTED_GROUP, FETCH_CATEGORIES_BY_GROUP_ID } from '../../../store/actions'
+import { mapState } from 'vuex';
 
 export default {
 
@@ -28,12 +29,16 @@ export default {
         .then(() => this.$store
             .dispatch(FETCH_CATEGORIES_BY_GROUP_ID, this.$store.state.selectedGroup._id)
         )
-        .then(() => console.log(this.$store.state.selectedGroup))
     },
 
     computed: {
-        selectedGroup() {
-            return this.$store.state.selectedGroup
+        ...mapState(['selectedGroup', 'categories'])
+    },
+
+    methods: {
+        seeDetailsOf(category) {
+            this.$store.commit('changeSelectedCategory', category)
+            this.$router.push(`/categories/${category._id}`)
         }
     }
 }

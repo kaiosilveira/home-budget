@@ -9,7 +9,4 @@ module.exports = function(app) {
     app.route('/v1/items/:id')
     .get(controller.get);
 
-    app.route('/v1/items/category/:categoryId')
-    .get(controller.listByCategoryId);
-
 }
